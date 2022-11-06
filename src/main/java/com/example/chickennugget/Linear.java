@@ -59,22 +59,11 @@ public class Linear extends Application {
         outerAtom2.translateXProperty().set(-CYLHEIGHT);
         outerAtom2.setMaterial(atom2Material);
 
-
-
-
-
-
-
-
-
-
         Cylinder bond1 = createConnection((new Point3D(0, 0, 0)), new Point3D(CYLHEIGHT, 0, 0));
         bond1.setMaterial(bondMaterial);
 
         Cylinder bond2 = createConnection((new Point3D(0, 0, 0)), new Point3D(-CYLHEIGHT, 0, 0));
         bond2.setMaterial(bondMaterial);
-
-
 
         Group group = new Group(centralAtom, outerAtom1, outerAtom2, bond2, bond1);
 
@@ -112,8 +101,6 @@ public class Linear extends Application {
 
         return line;
     }
-
-
 
     private void initMouseControl(Group group, Scene scene, Stage stage) {
         Rotate xRotate;

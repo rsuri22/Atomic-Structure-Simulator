@@ -46,7 +46,6 @@ public class TrigPlanar extends Application {
         outerAtomMaterial.setDiffuseColor(Color.WHITE);
         outerAtomMaterial.setSpecularColor(Color.LIGHTBLUE);
 
-
         Sphere centralAtom = new Sphere(RADIUS);
         centralAtom.setMaterial(centralAtomMaterial);
 
@@ -64,9 +63,6 @@ public class TrigPlanar extends Application {
         outerAtom3.translateZProperty().set(-CYLHEIGHT * (Math.sqrt(3)/2));
         outerAtom3.setMaterial(outerAtomMaterial);
 
-
-
-
         Cylinder bond1 = createConnection((new Point3D(0, 0, 0)), new Point3D(CYLHEIGHT, 0, 0));
         bond1.setMaterial(bondMaterial);
 
@@ -77,7 +73,6 @@ public class TrigPlanar extends Application {
         Cylinder bond3 = createConnection(new Point3D(0, 0, 0),
                 new Point3D(-CYLHEIGHT/2, 0, CYLHEIGHT * (Math.sqrt(3)/2)));
         bond3.setMaterial(bondMaterial);
-
 
         Group group = new Group(outerAtom1, centralAtom, outerAtom2, outerAtom3, bond1, bond2, bond3);
 
@@ -116,8 +111,6 @@ public class TrigPlanar extends Application {
         return line;
     }
 
-
-
     private void initMouseControl(Group group, Scene scene, Stage stage) {
         Rotate xRotate;
         Rotate yRotate;
@@ -144,7 +137,6 @@ public class TrigPlanar extends Application {
             double movement = event.getDeltaY();
             group.translateZProperty().set(group.getTranslateZ() + movement);
         });
-
     }
 
     public static void main(String[] args) {

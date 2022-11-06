@@ -46,10 +46,8 @@ public class Tetrahedral extends Application {
         outerAtomMaterial.setDiffuseColor(Color.WHITE);
         outerAtomMaterial.setSpecularColor(Color.LIGHTBLUE);
 
-
         Sphere centralAtom = new Sphere(RADIUS);
         centralAtom.setMaterial(centralAtomMaterial);
-
 
         Sphere outerAtom1 = new Sphere(RADIUS);
         outerAtom1.translateYProperty().set(-CYLHEIGHT);

@@ -68,7 +68,6 @@ public class TrigPyramidal extends Application {
         outerAtom5.translateYProperty().set(-CYLHEIGHT);
         outerAtom5.setMaterial(outerAtomMaterial);
 
-
         Cylinder bond1 = createConnection(new Point3D(0, 0, 0), new Point3D(0, CYLHEIGHT, 0));
         bond1.setMaterial(bondMaterial);
 
