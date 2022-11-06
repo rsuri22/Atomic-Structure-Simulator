@@ -16,19 +16,22 @@ import javafx.scene.shape.Sphere;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
-
-public class Tetrahedral extends Application {
-
+public class Octahedral extends Application {
     public static final float WIDTH = 1400;
     public static final float HEIGHT = 800;
     public static final float RADIUS = 25;
-    public static final float SKELTHICKNESS = RADIUS/25;
     public static final float CYLHEIGHT = RADIUS * 3;
-    public static final double ANGLE = 0.22675;
-    public static final Point3D NODE4 = new Point3D(-CYLHEIGHT * Math.sqrt(3) / 4, CYLHEIGHT * Math.sin(ANGLE), CYLHEIGHT * 3 / 4);
-    public static final Point3D NODE3 = new Point3D(-CYLHEIGHT * Math.sqrt(3) / 4, CYLHEIGHT * Math.sin(ANGLE), -CYLHEIGHT * 3 / 4);
-    public static final Point3D NODE1 = new Point3D(0, -CYLHEIGHT, 0);
-    public static final Point3D NODE2 = new Point3D((CYLHEIGHT * (Math.sqrt(3) / 2)), CYLHEIGHT * Math.sin(ANGLE), 0);
+    public static final float SKELTHICKNESS = RADIUS/25;
+
+
+
+
+    public static final Point3D NODE1 = new Point3D(0, CYLHEIGHT, 0);
+    public static final Point3D NODE2 = new Point3D(CYLHEIGHT/Math.sqrt(2), 0, CYLHEIGHT/Math.sqrt(2));
+    public static final Point3D NODE3 = new Point3D(-CYLHEIGHT/Math.sqrt(2), 0, -CYLHEIGHT/Math.sqrt(2));
+    public static final Point3D NODE4 = new Point3D(-CYLHEIGHT/Math.sqrt(2), 0, CYLHEIGHT/Math.sqrt(2));
+    public static final Point3D NODE5 = new Point3D(CYLHEIGHT/Math.sqrt(2), 0, -CYLHEIGHT/Math.sqrt(2));
+    public static final Point3D NODE6 = new Point3D(0, -CYLHEIGHT, 0);
     public static final Point3D ORIGIN = new Point3D(0, 0, 0);
     private double anchorX, anchorY;
     private double anchorAngleX = 0;
@@ -55,31 +58,35 @@ public class Tetrahedral extends Application {
         skeletonMaterial.setDiffuseColor(Color.LIMEGREEN);
         skeletonMaterial.setSpecularColor(Color.CHARTREUSE);
 
+        Sphere outerAtom1 = new Sphere(RADIUS);
+        outerAtom1.translateYProperty().set(NODE1.getY());
+        outerAtom1.setMaterial(outerAtomMaterial);
+
         Sphere centralAtom = new Sphere(RADIUS);
         centralAtom.setMaterial(centralAtomMaterial);
 
-        Sphere outerAtom1 = new Sphere(RADIUS);
-        outerAtom1.translateYProperty().set(-CYLHEIGHT);
-        outerAtom1.setMaterial(outerAtomMaterial);
-
         Sphere outerAtom2 = new Sphere(RADIUS);
         outerAtom2.translateXProperty().set(NODE2.getX());
-        outerAtom2.translateYProperty().set(NODE2.getY());
         outerAtom2.translateZProperty().set(NODE2.getZ());
         outerAtom2.setMaterial(outerAtomMaterial);
 
         Sphere outerAtom3 = new Sphere(RADIUS);
         outerAtom3.translateXProperty().set(NODE3.getX());
-        outerAtom3.translateYProperty().set(NODE3.getY());
         outerAtom3.translateZProperty().set(NODE3.getZ());
         outerAtom3.setMaterial(outerAtomMaterial);
 
         Sphere outerAtom4 = new Sphere(RADIUS);
         outerAtom4.translateXProperty().set(NODE4.getX());
-        outerAtom4.translateYProperty().set(NODE4.getY());
         outerAtom4.translateZProperty().set(NODE4.getZ());
         outerAtom4.setMaterial(outerAtomMaterial);
 
+        Sphere outerAtom5 = new Sphere(RADIUS);
+        outerAtom5.translateXProperty().set(NODE5.getX());
+        outerAtom5.translateZProperty().set(NODE5.getZ());
+        outerAtom5.setMaterial(outerAtomMaterial);
+
+        Sphere outerAtom6 = new Sphere(RADIUS);
+        outerAtom6.translateYProperty().set(NODE6.getY());
         Cylinder bond1 = createConnection(ORIGIN, NODE1);
         bond1.setMaterial(bondMaterial);
 
@@ -88,9 +95,16 @@ public class Tetrahedral extends Application {
 
         Cylinder bond3 = createConnection(ORIGIN, NODE3);
         bond3.setMaterial(bondMaterial);
+        System.out.println(bond3.getHeight());
 
-        Cylinder bond4 = createConnection((ORIGIN), NODE4);
+        Cylinder bond4 = createConnection(ORIGIN, NODE4);
         bond4.setMaterial(bondMaterial);
+
+        Cylinder bond5 = createConnection(ORIGIN, NODE5);
+        bond5.setMaterial(bondMaterial);
+
+        Cylinder bond6 = createConnection(ORIGIN, NODE6);
+        bond6.setMaterial(bondMaterial);
 
         Cylinder skeleton1 = createConnection(NODE1, NODE2);
         skeleton1.setRadius(SKELTHICKNESS);
@@ -104,22 +118,46 @@ public class Tetrahedral extends Application {
         skeleton3.setRadius(SKELTHICKNESS);
         skeleton3.setMaterial(skeletonMaterial);
 
-        Cylinder skeleton4 = createConnection(NODE2, NODE3);
+        Cylinder skeleton4 = createConnection(NODE1, NODE5);
         skeleton4.setRadius(SKELTHICKNESS);
         skeleton4.setMaterial(skeletonMaterial);
 
-        Cylinder skeleton5 = createConnection(NODE3, NODE4);
+        Cylinder skeleton5 = createConnection(NODE6, NODE2);
         skeleton5.setRadius(SKELTHICKNESS);
         skeleton5.setMaterial(skeletonMaterial);
 
-        Cylinder skeleton6 = createConnection(NODE2, NODE4);
+        Cylinder skeleton6 = createConnection(NODE6, NODE3);
         skeleton6.setRadius(SKELTHICKNESS);
         skeleton6.setMaterial(skeletonMaterial);
 
+        Cylinder skeleton7 = createConnection(NODE6, NODE4);
+        skeleton7.setRadius(SKELTHICKNESS);
+        skeleton7.setMaterial(skeletonMaterial);
+
+        Cylinder skeleton8 = createConnection(NODE6, NODE5);
+        skeleton8.setRadius(SKELTHICKNESS);
+        skeleton8.setMaterial(skeletonMaterial);
+
+        Cylinder skeleton9 = createConnection(NODE2, NODE5);
+        skeleton9.setRadius(SKELTHICKNESS);
+        skeleton9.setMaterial(skeletonMaterial);
+
+        Cylinder skeleton10 = createConnection(NODE3, NODE5);
+        skeleton10.setRadius(SKELTHICKNESS);
+        skeleton10.setMaterial(skeletonMaterial);
+
+        Cylinder skeleton11 = createConnection(NODE4, NODE2);
+        skeleton11.setRadius(SKELTHICKNESS);
+        skeleton11.setMaterial(skeletonMaterial);
+
+        Cylinder skeleton12 = createConnection(NODE3, NODE4);
+        skeleton12.setRadius(SKELTHICKNESS);
+        skeleton12.setMaterial(skeletonMaterial);
+
         Group main = new Group();
-        Group atoms = new Group(centralAtom, outerAtom1, outerAtom2, outerAtom3, outerAtom4);
-        Group bonds = new Group(bond1, bond2, bond3, bond4);
-        Group skeleton = new Group(skeleton1, skeleton2, skeleton3, skeleton4, skeleton5, skeleton6);
+        Group atoms = new Group(centralAtom, outerAtom1, outerAtom2, outerAtom3, outerAtom4, outerAtom5, outerAtom6);
+        Group bonds = new Group (bond1, bond2, bond3, bond4, bond5, bond6);
+        Group skeleton = new Group(skeleton1, skeleton2, skeleton3, skeleton4, skeleton5, skeleton6, skeleton7, skeleton8, skeleton9, skeleton10, skeleton11, skeleton12);
         main.getChildren().add(atoms);
         main.getChildren().add(bonds);
         main.getChildren().add(skeleton);
