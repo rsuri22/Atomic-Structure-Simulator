@@ -16,16 +16,13 @@ import javafx.scene.shape.Sphere;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
 import javafx.stage.Stage;
+
 public class Octahedral extends Application {
     public static final float WIDTH = 1400;
     public static final float HEIGHT = 800;
     public static final float RADIUS = 25;
     public static final float CYLHEIGHT = RADIUS * 3;
     public static final float SKELTHICKNESS = RADIUS/25;
-
-
-
-
     public static final Point3D NODE1 = new Point3D(0, CYLHEIGHT, 0);
     public static final Point3D NODE2 = new Point3D(CYLHEIGHT/Math.sqrt(2), 0, CYLHEIGHT/Math.sqrt(2));
     public static final Point3D NODE3 = new Point3D(-CYLHEIGHT/Math.sqrt(2), 0, -CYLHEIGHT/Math.sqrt(2));
