@@ -5,12 +5,6 @@ import javafx.application.Application;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-//import com.example.chickennugget.StructureBuilder.Octahedral;
-//import com.example.chickennugget.StructureBuilder.Tetrahedral;
-//import com.example.chickennugget.StructureBuilder.TrigPlanar;
-//import com.example.chickennugget.StructureBuilder.TrigPyramidal;
-//import com.example.chickennugget.StructureBuilder.TrigBipyramidal;
-//import com.example.chickennugget.StructureBuilder.NodeMap;
 
 import javafx.scene.paint.Color;
 
