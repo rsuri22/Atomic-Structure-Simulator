@@ -1,2 +1,2 @@
 # JavaFX-Testing
-JavaFX development for atomic structure simulator (for AP Computer Science Independent Project)
+JavaFX development for atomic structure simulator (for AP Computer Science Final Project)
