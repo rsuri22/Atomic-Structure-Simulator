@@ -345,6 +345,8 @@ public class Element {
     }
 
     public static Element findBySymbol(List<Element> elements, String s){
+
+
         int i = 0;
         boolean runLoop = true;
         while ((i <= elements.size() - 1) && (runLoop)) {
@@ -356,6 +358,17 @@ public class Element {
             i++;
         }
         return elements.get(i);
+    }
+
+    //Recursive implementation of findBySymbol method - this one works too!
+    public static Element findBySymbolR(List<Element> elements, String s, int i){
+        Element e = elements.get(i);
+        if (s.equals(e.getSymbol())) {
+            return e;
+        }
+        else {
+            return findBySymbolR(elements, s, i + 1);
+        }
     }
 
     public static Color findColor(Element e){

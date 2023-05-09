@@ -24,7 +24,7 @@ public class Main {
                 if (symbol.equals("STOP") || symbol.equals(("stop")))
                     keepGoing = false;
                 else {
-                    System.out.println(Element.findBySymbol(elements, symbol));
+                    System.out.println(Element.findBySymbolR(elements, symbol, 0));
                 }
                 System.out.println("Thanks for using my element finder!");
             }
@@ -44,7 +44,8 @@ public class Main {
         }
         else if (ans.equals("3")) {
             while (keepGoing) {
-                System.out.println("What molecule would you like to find the structure of? Type STOP to end.");
+                System.out.println("What molecule would you like to find the structure of (enter the molecule as AXBY n-, with n " +
+                        "representing the charge on a molecule - if the charge is zero, don't add anything at the end). Type STOP to end.");
                 String userInput = sc.nextLine();
                 if (userInput.equals("STOP") || userInput.equals("stop"))
                     keepGoing = false;

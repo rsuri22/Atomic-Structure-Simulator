@@ -15,10 +15,7 @@ import javafx.scene.input.ScrollEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.PhongMaterial;
 import javafx.scene.paint.RadialGradient;
-import javafx.scene.shape.Cylinder;
-import javafx.scene.shape.MeshView;
-import javafx.scene.shape.Sphere;
-import javafx.scene.shape.TriangleMesh;
+import javafx.scene.shape.*;
 import javafx.scene.transform.Affine;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.Translate;
@@ -27,7 +24,7 @@ public class StructureBuilder {
     public static final float WIDTH = 1400;
     public static final float HEIGHT = 800;
     private static double MOUSE_SPEED = 0.1;
-    private static double ROTATION_SPEED = 4.0;
+    private static double ROTATION_SPEED = 6;
     public static double DEFAULTRADIUS = 25;
     public static double outerRadius = DEFAULTRADIUS;
     public static double centralRadius = DEFAULTRADIUS;
@@ -275,7 +272,7 @@ public class StructureBuilder {
             Cylinder skeleton1 = createSkeleton(NODE_9, NODE_10, skeletonMaterial);
             Cylinder skeleton2 = createSkeleton(NODE_10, NODE_11, skeletonMaterial);
             Cylinder skeleton3 = createSkeleton(NODE_9, NODE_12, skeletonMaterial);
-            Cylinder skeleton4 = createSkeleton(NODE_10, NODE_11, skeletonMaterial);
+            Cylinder skeleton4 = createSkeleton(NODE_9, NODE_11, skeletonMaterial);
             Cylinder skeleton5 = createSkeleton(NODE_10, NODE_12, skeletonMaterial);
             Cylinder skeleton6 = createSkeleton(NODE_11, NODE_12, skeletonMaterial);
 
