@@ -1,2 +1,2 @@
-# JavaFX-Testing
-JavaFX development for atomic structure simulator (for AP Computer Science Final Project)
+# Small Molecule Structure Generator
+Takes text input and utillizes JavaFX to model single-centered molecular structures using VSEPR theory. Can also provide relevant information on elements and conduct molar mass calculations (all from text input). Chemical formulas should be inputted with approprate parentheses and numbers when necessary, with charges one space after the molecule. For example, ammonium would be entered as NH4 +, the sulfate ion would be SO4 2- and chlorodifluoromethane would be CF2ClH (all inputs are equivalent as long as central atom is typed first).
